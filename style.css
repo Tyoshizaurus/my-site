@@ -1,0 +1,90 @@
+body {
+    background-color: #f5f5f5;
+    font-family: sans-serif;
+}
+h1 {
+    color: #2a6df4;
+}
+p {
+    line-height: 1.8;
+}
+h2 {
+    color: #e67e22;
+    border-bottom: 2px solid #2a6df4;
+    margin-top: 32px;
+}
+.container {
+    max-width: 640px;           /*横幅を最大640pxに*/
+    margin: 40px auto;          /*上下40px、左右は自動（＝中央寄せ）*/
+    padding: 24px 32px;         /*上下24px、左右32pxの内側余白*/
+    background-color: #ffffff;
+    border-radius: 8px;         /*角を丸く*/
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);/*影をつける*/
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    /*justify-content: flex-start;*/
+    /*justify-content: center;*/
+    /*justify-content: flex-end;*/
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dddddd;
+}
+.logo {
+    font-weight: bold;
+}
+nav a {
+    margin-left: 16px;
+    color: #333333;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #2a6df4;
+}
+.cards {
+    display: flex;
+    gap: 16px;          /*カード同士の隙間*/
+    flex-wrap: wrap;    /*入りきならなければ折り返す*/
+}
+.card {
+    flex: 1;            /*余った幅をカードで均等に分ける*/
+    min-width: 160px;   /*これにより狭くなるなら折り返す*/
+    padding: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    transition: 0.2s;   /*.card:hoverの変化を滑らかにする（既存の.cardに追記でもOK）*/
+}
+.card h3 {
+    margin-top: 0;
+    font-size:16px;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.card img {
+    width: 100%;            /*カードの幅いっぱいに*/
+    height: 120px;
+    object-fit: cover;      /*縦横比を保ったまま、はみ出した部分を切り取る*/
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {         /*画面の幅が600px以下の時だけ、中のCSSを使う*/
+    .container {
+        margin: 0;                  /*スマホでは外側の余白をなくす*/
+        border-radius: 0;
+        padding: 16px;
+    }
+    .header {
+        flex-direction: column;     /*ロゴとメニューを縦に並べる*/
+        gap: 8px;
+    }
+    nav a {
+        margin: 0 8px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
